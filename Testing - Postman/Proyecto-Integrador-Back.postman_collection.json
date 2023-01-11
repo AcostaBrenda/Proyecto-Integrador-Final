@@ -1,0 +1,1544 @@
+{
+	"info": {
+		"_postman_id": "5ccd2388-63b2-41f7-88ba-3d9616ed77d8",
+		"name": "Proyecto-Integrador-Back",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "addUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Maria\", \r\n    \"apellido\": \"Lopez\",\r\n    \"email\": \"maria@mail.com\",\r\n    \"password\": \"malopez\",\r\n    \"puntuaciones\":null,\r\n    \"listadereservas\":null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login admin jwt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@mail.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/usuarios/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"usuarios",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user jwt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"brenda@mail.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/usuarios/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"usuarios",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "addCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Cateoria 5\",\r\n    \"descripcion\": \"Descapotable gris\",\r\n    \"url_imagen\": \"una urlll\",\r\n    \"productos\": [],\r\n    \"cantidadProductos\": null\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8085/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCategories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findCategoryById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/categorias/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"categorias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categorias_id\": 5,\r\n    \"titulo\": \"Cateoria 5 parte 2\",\r\n    \"descripcion\": \"Descapotable gris 2\",\r\n    \"url_imagen\": \"otra urlll\",\r\n    \"productos\": [],\r\n    \"cantidadProductos\": null\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8085/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204 no content\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", () => {\r",
+									"  pm.response.to.have.status(\"No Content\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8085/categorias/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"categorias",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ciudades",
+			"item": [
+				{
+					"name": "addCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Cordoba 1\",\r\n    \"nombre_pais\": \"Argentina 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8085/ciudades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/ciudades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findCityById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/ciudades/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"ciudades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ciudades_id\": 5,\r\n    \"nombre\": \"Rosario 1\",\r\n    \"nombre_pais\": \"Argetnina\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8085/ciudades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204 no content\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", () => {\r",
+									"  pm.response.to.have.status(\"No Content\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8085/ciudades/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"ciudades",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservas",
+			"item": [
+				{
+					"name": "addReserves",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJicmVuZGFAbWFpbC5jb20iLCJhcGVsbGlkbyI6IkFjb3N0YSIsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sImV4cCI6MTYzODk1Mzk3NCwibm9tYnJlIjoiQnJlbmRhIiwiaWF0IjoxNjM4OTE3OTc0fQ.Mpt0Eaq900PE4nn6QiEhg4dhQhMXS2YR_d3XRPRAfug",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fechaInicial\": \"2022-02-01\",\r\n  \"fechaFinal\": \"2022-02-05\",\r\n  \"horaDeReserva\": \"12.00\",\r\n  \"productosId\": 2,\r\n  \"usuariosId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/reservas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"reservas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getReserves",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBtYWlsLmNvbSIsImFwZWxsaWRvIjoiUm9kcmlndWV6Iiwicm9sZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImV4cCI6MTYzODk1Mzk2OCwibm9tYnJlIjoiQnJ1bm8iLCJpYXQiOjE2Mzg5MTc5Njh9.vgXIUE0DjrmSgkiCYlv5FTBpBm5ldS5TT1vMImlh1fk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/reservas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"reservas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findReservesByProductId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBtYWlsLmNvbSIsImFwZWxsaWRvIjoiUm9kcmlndWV6Iiwicm9sZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImV4cCI6MTYzODk1Mzk2OCwibm9tYnJlIjoiQnJ1bm8iLCJpYXQiOjE2Mzg5MTc5Njh9.vgXIUE0DjrmSgkiCYlv5FTBpBm5ldS5TT1vMImlh1fk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/reservas/buscarPorIdProducto/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"reservas",
+								"buscarPorIdProducto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findReservesByUserId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJicmVuZGFAbWFpbC5jb20iLCJhcGVsbGlkbyI6IkFjb3N0YSIsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sImV4cCI6MTYzODk1Mzk3NCwibm9tYnJlIjoiQnJlbmRhIiwiaWF0IjoxNjM4OTE3OTc0fQ.Mpt0Eaq900PE4nn6QiEhg4dhQhMXS2YR_d3XRPRAfug",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/reservas/buscarPorIdUsuario/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"reservas",
+								"buscarPorIdUsuario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "addProduct",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBtYWlsLmNvbSIsImFwZWxsaWRvIjoiUm9kcmlndWV6Iiwicm9sZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImV4cCI6MTYzODk1Mzk2OCwibm9tYnJlIjoiQnJ1bm8iLCJpYXQiOjE2Mzg5MTc5Njh9.vgXIUE0DjrmSgkiCYlv5FTBpBm5ldS5TT1vMImlh1fk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"nombre producto 9\",\r\n    \"descripcion\": \"descripcion producto 9\",\r\n    \"normas\": \"no fumar\",\r\n    \"saludYSeguridad\": \"no saltar por la ventana\",\r\n    \"politicaCancelacion\": \"informar 48 hs antes su cancelación\",\r\n    \"direccion\": \"Avenida Siempreviva 45\",\r\n    \"categoria\": {\r\n            \"categorias_id\": 4,\r\n            \"titulo\": \"Eléctrico\",\r\n            \"descripcion\": \"Autos Eléctricos\",\r\n            \"url_imagen\": \"https://img.digibook.link/Categoria_4_electrico_Q8.webp\",\r\n            \"cantidadProductos\": null\r\n        },\r\n        \"ciudad\": {\r\n            \"ciudades_id\": 4,\r\n            \"nombre\": \"Bariloche\",\r\n            \"nombre_pais\": \"Argentina\"\r\n        },\r\n    \"puntuaciones\": [],\r\n    \"listadeimagenes\": [],\r\n    \"listadereservas\": [],\r\n    \"caracteristicas\": [\r\n        {\r\n            \"nombre\": \"Bluetooh\",\r\n            \"icono\": \"fab fa-bluetooth\"\r\n        },\r\n        {\r\n            \"nombre\": \"Pet friendly\",\r\n            \"icono\": \"fas fa-paw\"\r\n        },\r\n        {\r\n            \"nombre\": \"Wifi\",\r\n            \"icono\": \"fas fa-Wifi\"\r\n        }\r\n    ]\r\n}\r\n\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8085/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProducts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findProductById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/productos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"productos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findProductsByCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/productos/buscarPorCiudad/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"productos",
+								"buscarPorCiudad",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findProductsByCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/productos/buscarPorCategoria/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"productos",
+								"buscarPorCategoria",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByCityAndDates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fechaInicial\" : \"2022-02-01\",\r\n    \"fechaFinal\" : \"2022-02-10\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8085/productos/buscarPorFechasYCiudad/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"productos",
+								"buscarPorFechasYCiudad",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findProductByDates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fechaInicial\" : \"2022-02-01\",\r\n    \"fechaFinal\" : \"2022-02-10\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8085/productos/buscarPorFechas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"productos",
+								"buscarPorFechas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBtYWlsLmNvbSIsImFwZWxsaWRvIjoiUm9kcmlndWV6Iiwicm9sZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImV4cCI6MTYzODk1Mzk2OCwibm9tYnJlIjoiQnJ1bm8iLCJpYXQiOjE2Mzg5MTc5Njh9.vgXIUE0DjrmSgkiCYlv5FTBpBm5ldS5TT1vMImlh1fk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productos_id\": 9,\r\n    \"nombre\": \"nombre producto 9\",\r\n    \"descripcion\": \"descripcion producto 9\",\r\n    \"normas\": \"no fumar\",\r\n    \"saludYSeguridad\": \"no saltar por la ventana\",\r\n    \"politicaCancelacion\": \"informar 48 hs antes su cancelación\",\r\n    \"direccion\": \"Avenida Siempreviva 45\",\r\n    \"categoria\": {\r\n            \"categorias_id\": 4,\r\n            \"titulo\": \"Eléctrico\",\r\n            \"descripcion\": \"Autos Eléctricos\",\r\n            \"url_imagen\": \"https://img.digibook.link/Categoria_4_electrico_Q8.webp\",\r\n            \"cantidadProductos\": null\r\n        },\r\n        \"ciudad\": {\r\n            \"ciudades_id\": 4,\r\n            \"nombre\": \"Bariloche\",\r\n            \"nombre_pais\": \"Argentina\"\r\n        },\r\n    \"puntuaciones\": [],\r\n    \"listadeimagenes\": [],\r\n    \"listadereservas\": [],\r\n    \"caracteristicas\": []\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8085/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204 no content\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", () => {\r",
+									"  pm.response.to.have.status(\"No Content\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBtYWlsLmNvbSIsImFwZWxsaWRvIjoiUm9kcmlndWV6Iiwicm9sZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImV4cCI6MTYzODk1Mzk2OCwibm9tYnJlIjoiQnJ1bm8iLCJpYXQiOjE2Mzg5MTc5Njh9.vgXIUE0DjrmSgkiCYlv5FTBpBm5ldS5TT1vMImlh1fk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/productos/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"productos",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Características",
+			"item": [
+				{
+					"name": "addFeature",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"nombre\": \"ubicacion 1\", \r\n    \"icono\":\"faMapMarked 1\" \r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/caracteristicas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFeatures",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/caracteristicas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFeatureById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/caracteristicas/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"caracteristicas",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateFeature",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Carro 1\",\r\n    \"icono\":\"faCar 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/caracteristicas/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"caracteristicas",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteFeature",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204 no content\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", () => {\r",
+									"  pm.response.to.have.status(\"No Content\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/caracteristicas/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"caracteristicas",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imagenes",
+			"item": [
+				{
+					"name": "addProductImage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYUBtYWlsLmNvbSIsImFwZWxsaWRvIjoiTG9wZXoiLCJyb2xlcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9VU0VSIn1dLCJleHAiOjE2Mzg5NTM5NjUsIm5vbWJyZSI6Ik1hcmlhIiwiaWF0IjoxNjM4OTE3OTY1fQ.FTa_eTKDZ_bWbQEUtsbbcwTam_ulHl4kQgdQ8imsBUA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n\t\"nombre\": \"Joy Sedán 2\",\r\n\t\"descripcion\": \"descripcion producto Rosario - Deportivo 1\",\r\n\t\"normas\": \"Check-out: 10:00 1\",\r\n\t\"saludYSeguridad\": \"Se aplican las pautas de distanciamiento social y otras normas relacionadas con el coronavirus\",\r\n\t\"politicaCancelacion\": \"Agregá las fechas de tu viaje para obtener los detalles de cancelación de esta estadía.\",\r\n\t\"direccion\": \"Avenida Siempreviva 1234\",\r\n\t\"categoria\": {\r\n\t\"categorias_id\": 1,\r\n\t\"titulo\": \"Deportivo\",\r\n\t\"descripcion\": \"Autos Deportivos\",\r\n\t\"url_imagen\": \"https://img.digibook.link/Categoria_1_deportivo_AUDI-Q5.jpg\",\r\n\t\"cantidadProductos\": null\r\n\t},\r\n\t\"ciudad\": {\r\n\t\t\"ciudades_id\": 1,\r\n\t\t\"nombre\": \"Rosario\",\r\n\t\t\"nombre_pais\": \"Argentina\"\r\n\t},\r\n\t\"puntuaciones\": [],\r\n\t\"listadeimagenes\": [\r\n    {\r\n        \"imagenes_id\": 50,\r\n        \"titulo\": \"estaFotoEsPruebaDePostman\",\r\n        \"urlImagen\": \"https://img.digibook.link/Recomendacion_3_onix-turbo.jpg\"\r\n    }],\r\n\t\"listadereservas\": [],\r\n\t\"caracteristicas\": [\r\n        {\r\n            \"caracteristicas_id\": 12,\r\n            \"nombre\": \"paw\",\r\n            \"icono\": \"fa-solid fa-paw\"\r\n        },\r\n        {\r\n            \"caracteristicas_id\": 3,\r\n            \"nombre\": \"Wi-Fi\",\r\n            \"icono\": \"faWifi\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarImagenesPorId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8085/productos/1/imagenes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"productos",
+								"1",
+								"imagenes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Puntuaciones",
+			"item": [
+				{
+					"name": "updateScore",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYUBtYWlsLmNvbSIsImFwZWxsaWRvIjoiTG9wZXoiLCJyb2xlcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9VU0VSIn1dLCJleHAiOjE2Mzg5NTM5NjUsIm5vbWJyZSI6Ik1hcmlhIiwiaWF0IjoxNjM4OTE3OTY1fQ.FTa_eTKDZ_bWbQEUtsbbcwTam_ulHl4kQgdQ8imsBUA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"productos_id\": 8,\r\n\"nombre\": \"Onix RS\",\r\n\"descripcion\": \"Está situado en la ciudad de Bariloche en Cuba 5200. El auto eléctrico Chevrolet Onix RS tiene apariencia de hot-hatch y motor turbo de 1.0 litro. En lugar de apostar por el 1.2 litros que vemos en el Onix Premier en México, el Onix RS se queda con el pro\",\r\n\"normas\": \"No se permiten fiestas\",\r\n\"saludYSeguridad\": \"Detector de humo\",\r\n\"politicaCancelacion\": \"Agregá las fechas de tu viaje para obtener los detalles de cancelación de esta estadía.\",\r\n\"direccion\": \"Cuba 5200\",\r\n\"categoria\": {\r\n\"categorias_id\": 4,\r\n\"titulo\": \"Eléctrico\",\r\n\"descripcion\": \"Autos Eléctricos\",\r\n\"url_imagen\": \"https://img.digibook.link/Categoria_4_electrico_Q8.webp\",\r\n\"cantidadProductos\": null\r\n},\r\n\"ciudad\": {\r\n\"ciudades_id\": 4,\r\n\"nombre\": \"Bariloche\",\r\n\"nombre_pais\": \"Argentina\"\r\n},\r\n\"puntuaciones\": [\r\n        {\r\n      \"productosId\": 9,\r\n      \"puntuacion\": 5,\r\n      \"usuarios_id\": 2\r\n    }\r\n    ],\r\n\"listadeimagenes\": [\r\n{\r\n\"imagenes_id\": 8,\r\n\"titulo\": \"Onix RS - Imagen principal\",\r\n\"urlImagen\": \"https://img.digibook.link/Recomendacion_8_onix-RS.png\",\r\n\"productos_id\": 8\r\n},\r\n{\r\n\"imagenes_id\": 44,\r\n\"titulo\": \"Spark GT - auto de frente de lado derecho\",\r\n\"urlImagen\": \"https://img.digibook.link/20181107-Spark-Gt-Activ-2019.png\",\r\n\"productos_id\": 8\r\n},\r\n{\r\n\"imagenes_id\": 45,\r\n\"titulo\": \"Spark GT - auto de su lado derecho\",\r\n\"urlImagen\": \"https://img.digibook.link/images1.jpg\",\r\n\"productos_id\": 8\r\n},\r\n{\r\n\"imagenes_id\": 46,\r\n\"titulo\": \"Spark GT - auto de frente de lado izquierdo\",\r\n\"urlImagen\": \"https://img.digibook.link/RT_V_8ec8cfe1989e465ca2d8c1067ecb25bc.jpg\",\r\n\"productos_id\": 8\r\n},\r\n{\r\n\"imagenes_id\": 47,\r\n\"titulo\": \"Spark GT - auto de parte trasera\",\r\n\"urlImagen\": \"https://img.digibook.link/images.jpg\",\r\n\"productos_id\": 8\r\n},\r\n{\r\n\"imagenes_id\": 48,\r\n\"titulo\": \"Spark GT  - auto de frente de lado derecho - bosque\",\r\n\"urlImagen\": \"https://img.digibook.link/2019-spark-activ-01.jpg\",\r\n\"productos_id\": 8\r\n}\r\n],\r\n\"listadereservas\": [],\r\n\"caracteristicas\": [\r\n{\r\n\"caracteristicas_id\": 1,\r\n\"nombre\": \"GPS\",\r\n\"icono\": \"fas fa-location-arrow\"\r\n},\r\n{\r\n\"caracteristicas_id\": 2,\r\n\"nombre\": \"Touch\",\r\n\"icono\": \"fas fa-tablet-alt\"\r\n},\r\n{\r\n\"caracteristicas_id\": 3,\r\n\"nombre\": \"Wifi\",\r\n\"icono\": \"fas fa-wifi\"\r\n},\r\n{\r\n\"caracteristicas_id\": 4,\r\n\"nombre\": \"Air\",\r\n\"icono\": \"fas fa-wind\"\r\n},\r\n{\r\n\"caracteristicas_id\": 5,\r\n\"nombre\": \"Audio\",\r\n\"icono\": \"fas fa-play-circle\"\r\n},\r\n{\r\n\"caracteristicas_id\": 6,\r\n\"nombre\": \"Bluetooth\",\r\n\"icono\": \"fab fa-bluetooth-b\"\r\n},\r\n{\r\n\"caracteristicas_id\": 7,\r\n\"nombre\": \"Pet friendly\",\r\n\"icono\": \"fas fa-paw\"\r\n}\r\n]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
